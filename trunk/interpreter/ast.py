@@ -12,17 +12,17 @@ import sys
 import os.path
 
 import objects.cl_object
-import lib.cl_builtins
+import lib.builtin
 
 class CLAST(objects.cl_object.CL_Object):
     def binop(self, num1, num2, symbol):
         if symbol == '+':
-            return lib.cl_builtins.add(num1, num2)
+            return lib.builtin.add(num1, num2)
         elif symbol == '-':
-            return lib.cl_builtins.subtract(num1, num2)
+            return lib.builtin.subtract(num1, num2)
         elif symbol == '*':
-            return lib.cl_builtins.multiply(num1, num2)
+            return lib.builtin.multiply(num1, num2)
         elif symbol == '/':
-            return lib.cl_builtins.divide(num1, num2)
+            return lib.builtin.divide(num1, num2)
         elif symbol == '=':
-            return lib.cl_builtins.assign(num1, num2)
+            return lib.builtin.assign(num1, num2)
