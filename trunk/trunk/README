@@ -1,5 +1,0 @@
-cl-calc is a simple command line calculator.  At this point it can 
-do normal calculator functions, such as binary add/subtract/multiply
-/divide, but can handle parenthesis.
-
-To run it, just run python cl-calc.py.
