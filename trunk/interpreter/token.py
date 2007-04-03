@@ -21,6 +21,7 @@ tokens = (
     'RBRACK',
     'LBRACE',
     'RBRACE',
+    'NEWLINE',
 )
 
 
@@ -37,11 +38,13 @@ t_RBRACK = r'\]'
 t_LBRACE = r'\{'
 t_RBRACE = r'\}'
 
+def t_NEWLINE(t):
+    r'\n'
+    t.lexer.lineno += 1
+    return t
 
 # ignore these chars
 t_ignore = ' \t'
-
-
 
 # error definition
 def t_error(t):

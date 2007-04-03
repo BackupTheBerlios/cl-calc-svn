@@ -24,6 +24,10 @@ precedence = (
 AST = ast.CLAST()
 
 # Grammar rules
+def p_statement_expression(p):
+    '''statement : expression'''
+    p[0] = p[1]
+
 def p_expression_binop(p):
     '''expression : expression PLUS expression
                   | expression MINUS expression
@@ -41,14 +45,15 @@ def p_expression_number(p):
     'expression : NUMBER'
     p[0] = objects.decimal_object.CLDecimal(p[1])
 
+def p_err_expression(p):
+    '''expression : expression error'''
+    #XXX Todo: Add more sophisticated error handling
+    print "Illegal expression."
+    p[0] = None
+    p.parser.error = 1
+
 def p_error(p):
-    print "Syntax error on input"
-    while 1:
-        token = ply.yacc.token()
-        if token is None:
-            break
-    ply.yacc.restart()
-    return
+    pass
 
 # Initialize parser
 ply.yacc.yacc()

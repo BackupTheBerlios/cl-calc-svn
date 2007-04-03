@@ -50,9 +50,14 @@ def print_repl_result(result):
     wrapper, but will soon be more encompassing.  I will need to do some
     serious type checking and coercion'''
     try:
-        str_result = result.CL_repr()
+        if result is None:
+            return
+        else:
+            str_result = result.CL_repr()
     except:
         interpreter_helper.internal_error(result, sys.exc_info()[0])
+        # Uncomment for debugging
+        #sys.excepthook(sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2])
         sys.exit(1)
 
     print str_result
