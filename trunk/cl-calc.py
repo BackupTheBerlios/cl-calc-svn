@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # ------------------------------------------------------------------
 # 
 # cl-calc.py - The main program for cl-calc. Parses command line
