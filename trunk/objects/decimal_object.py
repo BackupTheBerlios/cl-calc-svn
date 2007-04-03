@@ -9,7 +9,7 @@
 
 import decimal
 import cl_object
-from string_object import CLString
+import string_object
 
 class CLDecimal(cl_object.CL_Object):
     '''CLDecimal is the default number type in the cl-calc language.  At this
@@ -70,4 +70,4 @@ def to_cldecimal(obj):
     if not isinstance(obj, float):
         return CLDecimal(obj)
     else:
-        return CLDecimal(CLString(obj))
+        return CLDecimal(CL_String(obj))

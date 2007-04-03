@@ -12,6 +12,7 @@ from token import tokens
 
 import ast
 import objects.decimal_object
+import objects.string_object
 
 
 # Precedence rules
@@ -44,6 +45,11 @@ def p_expression_paren(p):
 def p_expression_number(p):
     'expression : NUMBER'
     p[0] = objects.decimal_object.CLDecimal(p[1])
+
+def p_expression_string(p):
+    'expression : STRING'
+    p[0] = objects.string_object.CL_String(p[1])
+
 
 def p_err_expression(p):
     '''expression : expression error'''

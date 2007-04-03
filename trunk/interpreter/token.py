@@ -11,6 +11,8 @@ import ply.lex
 # tokens
 tokens = (
     'NUMBER',
+    'ID',
+    'STRING',
     'PLUS',
     'MINUS',
     'TIMES',
@@ -21,12 +23,14 @@ tokens = (
     'RBRACK',
     'LBRACE',
     'RBRACE',
-    'NEWLINE',
+    'NEWLINE', # I can't seem to get this one to work
 )
 
 
 # token definitions
 t_NUMBER = r'[0-9]*(\.)?[0-9]+'
+t_ID = r'[A-Za-z_]+[0-9A-Za-z_]*'
+t_STRING = r'(\'.*?\')|(\".*?\")'
 t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'

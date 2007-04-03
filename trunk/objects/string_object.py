@@ -8,7 +8,7 @@ import os.path
 
 import cl_object
 
-class CLString(cl_object.CL_Object):
+class CL_String(cl_object.CL_Object):
     def __init__(self, string):
         self.str = string
     
