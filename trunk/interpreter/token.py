@@ -13,10 +13,17 @@ tokens = (
     'NUMBER',
     'ID',
     'STRING',
+    'ASSIGN',
     'PLUS',
     'MINUS',
     'TIMES',
     'DIVIDE',
+    'EQ',
+    'GT',
+    'GE',
+    'LT',
+    'LE',
+    'NE',
     'LPAREN',
     'RPAREN',
     'LBRACK',
@@ -31,10 +38,17 @@ tokens = (
 t_NUMBER = r'[0-9]*(\.)?[0-9]+'
 t_ID = r'[A-Za-z_]+[0-9A-Za-z_]*'
 t_STRING = r'(\'.*?\')|(\".*?\")'
+t_ASSIGN = r'='
 t_PLUS = r'\+'
 t_MINUS = r'-'
 t_TIMES = r'\*'
 t_DIVIDE = r'\/'
+t_EQ = r'=='
+t_GT = r'>'
+t_GE = r'>='
+t_LT = r'<'
+t_LE = r'<='
+t_NE = r'=='
 t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_LBRACK = r'\['

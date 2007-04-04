@@ -35,7 +35,7 @@ def eval_exp(exp):
     except: 
         interpreter_helper.internal_error(exp, sys.exc_info()[0])
         # Uncomment for debugging
-        #sys.excepthook(sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2])
+        sys.excepthook(sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2])
         sys.exit(1)
 
     return result
@@ -57,7 +57,7 @@ def print_repl_result(result):
     except:
         interpreter_helper.internal_error(result, sys.exc_info()[0])
         # Uncomment for debugging
-        #sys.excepthook(sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2])
+        sys.excepthook(sys.exc_info()[0], sys.exc_info()[1], sys.exc_info()[2])
         sys.exit(1)
 
     print str_result

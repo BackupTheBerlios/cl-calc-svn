@@ -16,10 +16,12 @@ import objects.string_object
 
 
 # Precedence rules
+#XXX == is binding tighter than +...need to fix
 precedence = (
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
     ('left', 'ASSIGN'),
+    ('left', 'EQ', 'NE', 'LT', 'LE', 'GT', 'GE'),
 )
 
 AST = ast.CLAST()
@@ -33,7 +35,14 @@ def p_expression_binop(p):
     '''expression : expression PLUS expression
                   | expression MINUS expression
                   | expression TIMES expression
-                  | expression DIVIDE expression'''
+                  | expression DIVIDE expression
+                  | expression EQ expression
+                  | expression NE expression
+                  | expression LT expression
+                  | expression LE expression
+                  | expression GT expression
+                  | expression GE expression
+                  | lvalue ASSIGN expression'''
     p[0] = AST.binop(p[1], p[3], p[2])
 
 def p_expression_paren(p):
@@ -49,6 +58,14 @@ def p_expression_number(p):
 def p_expression_string(p):
     'expression : STRING'
     p[0] = objects.string_object.CL_String(p[1])
+
+def p_expression_id(p):
+    'expression : ID'
+    p[0] = AST.lookup(p[1])
+
+def p_lvalue_id(p):
+    'lvalue : ID'
+    p[0] = None
 
 
 def p_err_expression(p):
