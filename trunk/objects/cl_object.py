@@ -17,7 +17,6 @@ class CL_Object(object):
             %(self.refcount, self.name, self.type_obj)
 
     # binary opts
-
     def __add__(self):
         print "Object does not support binary add"
 
@@ -55,3 +54,4 @@ class CL_Object(object):
     # CL specific methods
     def CL_repr(self):
         return self.__repr__()
+

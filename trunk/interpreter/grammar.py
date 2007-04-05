@@ -18,10 +18,9 @@ import objects.string_object
 # Precedence rules
 #XXX == is binding tighter than +...need to fix
 precedence = (
+    ('left', 'EQ', 'NE', 'LT', 'LE', 'GT', 'GE', 'ASSIGN'),
     ('left', 'PLUS', 'MINUS'),
     ('left', 'TIMES', 'DIVIDE'),
-    ('left', 'ASSIGN'),
-    ('left', 'EQ', 'NE', 'LT', 'LE', 'GT', 'GE'),
 )
 
 AST = ast.CLAST()
@@ -57,7 +56,7 @@ def p_expression_number(p):
 
 def p_expression_string(p):
     'expression : STRING'
-    p[0] = objects.string_object.CL_String(p[1])
+    p[0] = objects.string_object.CL_String(p[1].strip('\'\"'))
 
 def p_expression_id(p):
     'expression : ID'
