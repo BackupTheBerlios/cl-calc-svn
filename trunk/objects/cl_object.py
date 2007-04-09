@@ -3,6 +3,8 @@
 # cl_object.py - Base cl_object type.
 # ------------------------------------------------------------------
 
+#XXX Add type attributes to all other object types
+
 import cl_type
 
 class CL_Object(object):

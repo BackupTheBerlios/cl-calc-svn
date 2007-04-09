@@ -44,5 +44,5 @@ class CLAST(objects.cl_object.CL_Object):
         elif symbol == '>=':
             return lib.builtin.greater_equal(num1, num2)
 
-    def lookup(self, symbol, value):
-        return lib.builtin.lookup(symbol)
+    def lookup(self, symbol):
+        return lib.builtin.lookup(self.symtable, symbol)

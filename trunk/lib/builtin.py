@@ -42,8 +42,8 @@ def boolean(predicate):
     else:
         return objects.false_object.CL_False()
 
-def assign(name, value):
+def assign(symtable, name, val):
     pass
 
-def assign(symtable, name, val):
+def lookup(symtable, name):
     pass
