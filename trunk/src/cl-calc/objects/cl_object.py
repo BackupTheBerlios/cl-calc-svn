@@ -11,12 +11,12 @@ class CL_Object(object):
     '''CL_Object will only define default object methods as well and store its
     type.  Keeping count of reference count and name will be functions of the
     stack itself.'''
-    def __init__(self, name=None, type_obj=cl_type.Object_Type):
+    def __init__(self, type_obj=cl_type.Object_Type):
         self.type_obj = cl_type.CL_Type(type_obj)
 
     def __repr__(self):
-        return '<Object CL_Object {refcount: %s; name: %s; type: %s;}>' \
-            %(self.refcount, self.name, self.type_obj)
+        return '<Object CL_Object {name: %s; type: %s;}>' \
+            %(self.name, self.type_obj)
 
     # binary opts
     def __add__(self):
@@ -56,4 +56,3 @@ class CL_Object(object):
     # CL specific methods
     def CL_repr(self):
         return self.__repr__()
-

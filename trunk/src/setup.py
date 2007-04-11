@@ -8,6 +8,6 @@ setup(name='cl-calc',
       author='Sean Gillespie',
       author_email='Sean.Gillespie@bisonofborg.com',
       url='http://www.bisonofborg.com',
-      packages=['interpreter', 'objects', 'lib'],
-      scripts=['cl-calc.py'],
+      packages=['cl-calc'],
+      scripts=['cl-calc/cl-calc.py'],
     )

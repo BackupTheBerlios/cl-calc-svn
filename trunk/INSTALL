@@ -1,0 +1,11 @@
+Installation Instructions:
+
+1) cd into src directory
+2) run setup.py install
+
+$ cd src
+$ python setup.py install
+
+--or simply--
+
+python src/setup.py install
